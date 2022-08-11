@@ -1,5 +1,6 @@
 
 
+/*debugger
 function ingresarNombre() 
 {alert("Bienvenido a Manija por la Seleccion Argentina");
 let nombre = prompt("Ingrese su nombre");
@@ -46,3 +47,5 @@ function cobrar(producto, precio) {
     ingresarNombre();
     let productoSeleccionado = mostrarProductos();
     let precioProd = validarPrecio(productoSeleccionado);cobrar(productoSeleccionado, precioProd);
+
+*/
