@@ -2,7 +2,7 @@
 class Producto {
     constructor(id, nombre, importe){
     this.id= id
-    this.nombre= nombre
+    this.nombre= nombre.toUpperCase()
     this.importe= importe
 
     }
@@ -12,7 +12,7 @@ class Producto {
 
 
 }
-
+const productos=[]
 function listadoProductos() {
  
         productos.push(new Producto(12, "Camiseta titular", 10500))
@@ -25,23 +25,27 @@ function listadoProductos() {
     
 
 }
-const productos=[]
+listadoProductos()
 function recorrerProductos() {
     debugger
+    
     productos.forEach(Element=> {
         console.table(Element)
     })
     
 }
+console.log(productos)
 alert("Bienvenido a Manija por la Seleccion Argentina")
-compra= prompt("¿Que producto desea? contamos con: \nCamiseta titular\n Camiseta suplente\n Camiseta  de entrenamiento\n Short titular\n Medias\n Pechera de entrenamiento \n Calsa termica").toUpperCase
-let buscar= productos.filter(el => el.nombre.incluide(compra))
+let compra= prompt("¿Que producto desea? contamos con: \nCamiseta titular\n Camiseta suplente\n Camiseta  de entrenamiento\n Short titular\n Medias\n Pechera de entrenamiento \n Calsa termica").toUpperCase()
+let buscar= productos.filter(el => el.nombre.includes(compra))
+console.log(buscar)
 alert("Gracias por su compra, a continuacion le diremos el precio del producto")
 
-alert("el precio a pagar es de :$ {buscar[0].precio}")
+alert(`el precio a pagar es de :${buscar[0].importe}`)
+
 function agregarProducto() {
-    let busqueda= prompt("agregar algun producto de interes:").toUpperCase()
-    let buscar= productos. find(el =>el.nombre.includes(nuevoProducto))
+    let nuevoProducto= prompt("agregar algun producto de interes:")
+    let resultado= productos.includes(nuevoProducto)
     if (!resultado) {
         productos.push(nuevoProducto)
         
