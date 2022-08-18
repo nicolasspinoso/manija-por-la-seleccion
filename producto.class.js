@@ -1,55 +1,102 @@
-
 class Producto {
-    constructor(id, nombre, importe){
-    this.id= id
-    this.nombre= nombre.toUpperCase()
-    this.importe= importe
-
+    constructor(id, nombre, precio, stock){
+    this.id= id;
+    this.nombre= nombre.toUpperCase();
+    this.precio= precio;
+    this.stock= stock;
+    
     }
     precioFinal(){
-        return parseFloat((this.importe*iva).toFixed(2))
+        return parseFloat((this.precio*iva).toFixed(2))
     }
-
-
 }
+
+
 const productos=[]
+
 function listadoProductos() {
  
-        productos.push(new Producto(12, "Camiseta titular", 10500))
-        productos.push(new Producto(23, "Camiseta suplente ", 8500))
-        productos.push(new Producto(34, "Camiseta  de entrenamiento", 6500))
-        productos.push(new Producto(45, "Short titular", 5500))
-        productos.push(new Producto(56, "Medias", 3500))
-        productos.push(new Producto(67, "Pechera de entrenamiento", 4500))
-        productos.push(new Producto(78,"Calsa termica", 6600))
+        productos.push(new Producto(1,"Camiseta titular",10500,2))
+        productos.push(new Producto(2, "Camiseta suplente ",8500,3))
+        productos.push(new Producto(3, "Camiseta  de entrenamiento",6500,4))
+        productos.push(new Producto(4, "Short titular",5500,5))
+        productos.push(new Producto(5, "Medias",3500,6))
+        productos.push(new Producto(6, "Pechera de entrenamiento",4500,7))
+        productos.push(new Producto(7,"Calsa termica",6600,8))
     
 
 }
 listadoProductos()
-function recorrerProductos() {
-    debugger
-    
-    productos.forEach(Element=> {
-        console.table(Element)
-    })
+const containerDiv= document.querySelector(".container");
+const carritoDiv = document.querySelector(".carrito");
+
+
+function crearCards() {
+   
+    productos.forEach(prod=>{
+        containerDiv.innerHTML +=`<div class=indumentaria>
+       <h4>${prod.nombre}</h4>
+       <p>$${prod.precio}</p>
+       <button id="btn-agregar${prod.id}">Comprar</button>
+       </div>`;
+
+    });
+
+    agregarFunconalidad()
+}
+function  agregarFunconalidad() {
+    productos.forEach(prod=>{
+      document
+      .querySelector(`#btn-agregar${prod.id}`)
+      .addEventListener("click",()=> {
+        console.log(prod);
+        agregarAlcarrito(prod)
+         });
+    });
+}
+
+function agregarAlcarrito(prod) {
+    let existe = carrito.some((productoSome) => productoSome.id === prod.id)
+    if( existe === false){
+        prod.cantidad= 1;
+        carrito.push(prod);
+    } else {
+        //let prodFind = carrito.find((productoFind) => productoFind.id === prod.id);
+        //prodFindprod.cantidad++;
+        prod.cantindad++
+    }
+    //carrito.push(prod);
+    console.log(carrito);
+    renderzarCarrito()
     
 }
-console.log(productos)
-alert("Bienvenido a Manija por la Seleccion Argentina")
-let compra= prompt("¿Que producto desea? contamos con: \nCamiseta titular\n Camiseta suplente\n Camiseta  de entrenamiento\n Short titular\n Medias\n Pechera de entrenamiento \n Calsa termica").toUpperCase()
-let buscar= productos.filter(el => el.nombre.includes(compra))
-console.log(buscar)
-alert("Gracias por su compra, a continuacion le diremos el precio del producto")
+function renderzarCarrito() {
+    carritoDiv.innerHTML="";
+    carrito.forEach(prod=>{
+        carritoDiv.innerHTML += `<div class=redenrizarcarrito>
+        <h4>${prod.nombre}</h4>
+        <p>$${prod.precio}</p>
+        <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar</button>
+        </div>`;
+ 
+    })
+borrarProductos()
+}
+function borrarProductos() {
+    carrito.forEach((prod) =>{
+        document
+        .querySelector(`#btn-borrar${prod.id}`)
+        .addEventListener("click",() => {
+          carrito = carrito.filter(
+          (productoFilter) => productoFilter.id !== prod.id
+             );
+          renderzarCarrito();
+        });
+    });
+            
+     
+}
 
-alert(`el precio a pagar es de :${buscar[0].importe}`)
 
-function agregarProducto() {
-    let nuevoProducto= prompt("agregar algun producto de interes:")
-    let resultado= productos.includes(nuevoProducto)
-    if (!resultado) {
-        productos.push(nuevoProducto)
-        
-    } else {
-        console.warn("el producto", nuevoProducto," ya figura en la lista")
-        }
-    }
+crearCards();
+    
