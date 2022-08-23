@@ -1,9 +1,10 @@
 class Producto {
-    constructor(id, nombre, precio, stock){
+    constructor(id, nombre, precio, img){
     this.id= id;
     this.nombre= nombre.toUpperCase();
     this.precio= precio;
-    this.stock= stock;
+    this.img = img;
+   ;
     
     }
     precioFinal(){
@@ -14,9 +15,10 @@ class Producto {
 
 const productos=[]
 
+
 function listadoProductos() {
  
-        productos.push(new Producto(1,"Camiseta titular",10500,2))
+        productos.push(new Producto(1,"Camiseta titular",10500,2, `img./imagenes/camisetatitular.jfif`))
         productos.push(new Producto(2, "Camiseta suplente ",8500,3))
         productos.push(new Producto(3, "Camiseta  de entrenamiento",6500,4))
         productos.push(new Producto(4, "Short titular",5500,5))
@@ -29,6 +31,9 @@ function listadoProductos() {
 listadoProductos()
 const containerDiv= document.querySelector(".container");
 const carritoDiv = document.querySelector(".carrito");
+let carrito= JSON.parse(localStorage.getItem("carrito"))
+
+
 
 
 function crearCards() {
@@ -75,23 +80,25 @@ function renderzarCarrito() {
     carrito.forEach(prod=>{
         carritoDiv.innerHTML += `<div class=redenrizarcarrito>
         <h4>${prod.nombre}</h4>
-        <p>$${prod.precio}</p>
+        <p>CANTIDAD:${prod.cantidad}</p>
         <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar</button>
         </div>`;
  
     })
-borrarProductos()
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    borrarProductos()
 }
 function borrarProductos() {
     carrito.forEach((prod) =>{
         document
         .querySelector(`#btn-borrar${prod.id}`)
-        .addEventListener("click",() => {
+        .addEventListener("click", () => {
           carrito = carrito.filter(
           (productoFilter) => productoFilter.id !== prod.id
              );
-          renderzarCarrito();
+          
         });
+        renderzarCarrito();
     });
             
      
