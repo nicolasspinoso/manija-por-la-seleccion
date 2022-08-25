@@ -5,38 +5,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script defer src="producto.class.js"></script>
-    <script src="index.js"></script>
-    <script src="variables.js"></script>
+
     <title>Manija por la seleccion</title>
 </head>
 
 <body>
     <header>
-        <h1>Manija por la Seleccion</h1>
-        <h2>Productos</h2>
 
+        <body>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Quienes somos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Galeria</a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link text-body" id="open" href="#">Cart<i
+                                        class="fa-solid fa-cart-shopping"></i> <span id="counter"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div>
+                <h1>Manija por la Seleccion</h1>
+                <h2>Productos</h2>
+            </div>
+            <main id="product-container">
+                <div class="modal-container" id="modal_container">
+                    <div id="modalCart" class="modal-cart">
+                        <button id="close" class="btn btn-danger btn-sm">X</button>
+                        <h3 id="cartTitle">Cart</h3>
+                        <div id="cart-container"></div>
+                    </div>
+                </div>
+               
+            </main>
+           
+              
     </header>
     <main>
-      
-        <div class="carrito"></div>
-        <div class="container"></div>
-        
-              </div></h5>
-            
-          </div>
-
-
-
-
-    
         <footer>
 
         </footer>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script src="index.js"></script>
+    <script src="cart.js"></script>
+
 
 </html>

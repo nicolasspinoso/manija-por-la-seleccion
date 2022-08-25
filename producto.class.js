@@ -1,4 +1,5 @@
-class Producto {
+
+/*class Producto {
     constructor(id, nombre, precio, img){
     this.id= id;
     this.nombre= nombre.toUpperCase();
@@ -18,20 +19,18 @@ const productos=[]
 
 function listadoProductos() {
  
-        productos.push(new Producto(1,"Camiseta titular",10500,2, `img./imagenes/camisetatitular.jfif`))
-        productos.push(new Producto(2, "Camiseta suplente ",8500,3))
-        productos.push(new Producto(3, "Camiseta  de entrenamiento",6500,4))
-        productos.push(new Producto(4, "Short titular",5500,5))
-        productos.push(new Producto(5, "Medias",3500,6))
-        productos.push(new Producto(6, "Pechera de entrenamiento",4500,7))
-        productos.push(new Producto(7,"Calsa termica",6600,8))
-    
-
+        productos.push(new Producto(1,"Camiseta titular",10500, 2, `src/imagenes/camisetatitular.jfif`))
+        productos.push(new Producto(2, "Camiseta suplente ",8500, 3, `src/imagenes/camisetasuplente.jfif`))
+        productos.push(new Producto(3, "Short titular",5500, 5,`src/imagenes/shorttitular.png`))
+        productos.push(new Producto(4, "Medias",3500, 6,`src/imagenes/medias.png`))
+        productos.push(new Producto(5, "Pechera de entrenamiento",4500,  7,`src/imagenes/Pechera de entrenamiento.jpg`))
+        productos.push(new Producto(6,"Calsa termica",6600, 8,`src/imagenes/Calsa termica.png`))
 }
+
 listadoProductos()
 const containerDiv= document.querySelector(".container");
 const carritoDiv = document.querySelector(".carrito");
-let carrito= JSON.parse(localStorage.getItem("carrito"))
+//let carrito= JSON.parse(localStorage.getItem("carrito"))
 
 
 
@@ -106,4 +105,4 @@ function borrarProductos() {
 
 
 crearCards();
-    
+    */
