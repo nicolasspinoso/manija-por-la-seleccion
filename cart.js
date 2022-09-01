@@ -9,7 +9,7 @@ const cart= (productId) =>{
         div.classList.add("productInCart");
         div.innerHTML = `<p>${product.name}</p>
                             <p>Precio: ${product.precio}</p>
-                            <p id="cantidad${product.id}">Cantidad: ${product.cantidad}</p>
+                            <p id="cantidad${product.Id}">Cantidad: ${product.cantidad}</p>
                              <button class="btn btn- danger btn-sm" id="delete${product.id}">x</button>
                         `
 
@@ -18,11 +18,12 @@ const cart= (productId) =>{
         botonBorrar. addEventListener("click", (e)=>{
           deleteProducto(e);
         })
-
     }
-    mostrarEncarrito()
+     mostrarEncarrito()
 
 }
+
+
 function deleteProducto(e) {
     let btnclicked = e.target;
     btnclicked.parentElement.remove()
